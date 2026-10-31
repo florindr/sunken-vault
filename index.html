@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tudor's Sunken Vault Story Quest (Lobster POV)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: radial-gradient(circle at top, #0f2942 0%, #061320 100%);
+      color: #f0f9ff;
+      min-height: 100vh;
+    }
+    h1, h2, h3, .font-heading {
+      font-family: 'Fredoka', sans-serif;
+    }
+    .card-glow-purple {
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
+    }
+    .card-glow-turquoise {
+      box-shadow: 0 0 28px rgba(45, 212, 191, 0.45);
+    }
+    .card-glow-amber {
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-6">
+  <div id="app" class="max-w-6xl mx-auto space-y-6"></div>
+
+  <script>
+    // Embedded Story Data & Local Asset Paths (compatible with both root and public/ serving)
+    const ASSET_PATHS = {
+      purple_lobster: "./public/assets/purple_lobster_lvl1.png",
+      kelp_monster: "./public/assets/kelp_monster_boss.png",
+      turquoise_lobster: "./public/assets/turquoise_lobster_lvl99.png",
+      worksheet_prompt: "./public/assets/worksheet_page2_img1.jpg",
+      original_draft: "./public/assets/worksheet_page1_img1.jpg"
+    };
+
+    const STORY_DATA = {
+  "title": "The Sunken Vault: Lobster POV Quest",
+  "author": "Tudor",
+  "characters": [
+    {
+      "id": "hero_lvl1",
+      "name": "Mythical Purple Lobster",
+      "role": "Level 1 Narrator ('I')",
+      "image": "./assets/purple_lobster_lvl1.png",
+      "stats": {
+        "Armour": 65,
+        "Claw Sharpness": 70,
+        "Stealth": 85
+      },
+      "desc": "Gloomy purple armour shell with shimmering green eyes like emeralds and sensitive antennae."
+    },
+    {
+      "id": "boss_kelp",
+      "name": "Colossal Green Kelp Monster",
+      "role": "Vault Guardian Boss",
+      "image": "./assets/kelp_monster_boss.png",
+      "stats": {
+        "Armour": 80,
+        "Lightning Power": 95,
+        "Stealth": 60
+      },
+      "desc": "Rises from the murky fog with glowing amber eyes, hurling balls of underwater lightning."
+    },
+    {
+      "id": "hero_lvl99",
+      "name": "Turquoise Lightning Lobster",
+      "role": "Level 99 Evolved Hero",
+      "image": "./assets/turquoise_lobster_lvl99.png",
+      "stats": {
+        "Armour": 100,
+        "Claw Sharpness": 100,
+        "Lightning": 100
+      },
+      "desc": "Unleashed by the ancient ocean ruins! Glowing turquoise-blue shell with claws sharp as needles."
+    }
+  ],
+  "vocabulary_gems": [
+    {
+      "word": "Colossal",
+      "meaning": "Gigantic, like a boss monster"
+    },
+    {
+      "word": "Murky",
+      "meaning": "Dark, cloudy, mysterious water"
+    },
+    {
+      "word": "Shimmering Emeralds",
+      "meaning": "Glowing green gem eyes"
+    },
+    {
+      "word": "Sonic Speed",
+      "meaning": "Faster than the speed of sound"
+    },
+    {
+      "word": "Turquoise",
+      "meaning": "Glowing electric blue-green armour"
+    }
+  ],
+  "stations": [
+    {
+      "id": 1,
+      "title": "Station 1: The Lobster's Secret Opening (Senses & Tense)",
+      "original": "Under the sea there was a sunken compass shaped vault. It had the smell of plain white salt. I have heard a big wave crush in the horizon. I saw a colossal green kelp growing from the rocky ocean floor. I have touched an iron switch and a part of the middle of the ocean ruin has exploded.",
+      "glitch_name": "Underwater Physics & Time-Travel Glitch",
+      "glitch_explanation": [
+        "Physics Check: Because you are a lobster deep on the ocean floor, you can't smell dry white salt in the air or hear a wave on the horizon—instead, your lobster antennae TASTE the salty current and FEEL the deep rumble of waves far above!",
+        "Time-Travel Fix: Change 'I have heard / I have touched / has exploded' into past tense ('I heard / I touched / exploded') so all actions happen in the same story timeline.",
+        "Spelling Power-Up: 'crush' -> 'crash', plus a hyphen in 'compass-shaped'."
+      ],
+      "options": [
+        {
+          "label": "Option A: The Antennae & Claw Clue (Subtle Suspense)",
+          "text": "Deep under the sea, I crept across the rocky ocean floor toward a sunken, compass-shaped vault. My long antennae twitched at the taste of plain white salt, and I felt the deep rumble of a giant wave crashing far above. Stepping past the colossal green kelp, I reached out with my heavy claw and pressed an iron switch—and the middle of the ocean ruin exploded!"
+        },
+        {
+          "label": "Option B: Close to Original (Clean & Punchy)",
+          "text": "Under the sea, there was a sunken, compass-shaped vault. The water tasted of plain white salt, and I heard a huge wave crash far above. I saw colossal green kelp growing from the rocky ocean floor. Carefully, I touched an iron switch with my claw, and the middle of the ocean ruin exploded!"
+        },
+        {
+          "label": "Option C: Action Stealth Opening",
+          "text": "Down on the dark, rocky ocean floor, I stood before a sunken, compass-shaped vault. Tasting the salty current, I heard the distant thunder of a massive wave crashing overhead. Beside a forest of colossal green kelp, I scraped an iron switch, and the ancient ruin exploded in a blinding flash!"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Station 2: The Big Reveal! (I Am The Lobster)",
+      "original": "In the murky water the big green kelp monster has appeared through that watery fog with its amber glowing eyes. It stares at the mythical gloomy purple lobster. With its shimmering green eyes like emeralds, the lobster stared back at the colossal kelp monster.",
+      "glitch_name": "Camera Switch Glitch (Who is 'I'?)",
+      "glitch_explanation": [
+        "In your original draft, 'I' pressed the switch, and then the camera floated away to talk about 'the lobster' as if it were someone else!",
+        "Since YOU are the lobster, this is the coolest moment to reveal it to the reader using 'me' and 'my'!"
+      ],
+      "options": [
+        {
+          "label": "Option A: The Surprise Monster Reveal",
+          "text": "In the murky water, a big green kelp monster appeared through the watery fog with glowing amber eyes. It stared down at me, not realizing I was no ordinary creature—I was a mythical, gloomy purple lobster! With my shimmering green eyes like emeralds, I stared right back at the colossal beast."
+        },
+        {
+          "label": "Option B: The Flashing Shell Reveal",
+          "text": "Through the murky fog, a giant green kelp monster appeared with glowing amber eyes. As the explosion's light flashed across my gloomy purple shell, the monster locked onto me. With my shimmering green eyes like emeralds, I stared fearlessly back at the colossal kelp monster."
+        },
+        {
+          "label": "Option C: Short & Fierce",
+          "text": "In the murky water, the big green kelp monster appeared through the fog with its glowing amber eyes. It glared down at my mythical, gloomy purple lobster shell. Shining my emerald-green eyes through the dark water, I stared right back at the colossal monster."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Station 3: Armour Up! (First-Person & Apostrophes)",
+      "original": "The lobster pinched the ground and a misty grey fog appeared on the ocean floor. The kelp monster said: \"Leave before you get hurt.\" Then the lobsters shell glowed and started to look like armour. The lobster's claws start growing and looked sharper.",
+      "glitch_name": "Pronoun & Tense Sync",
+      "glitch_explanation": [
+        "Swap 'The lobster' and 'the lobsters shell' to 'I' and 'my shell' so we stay inside your lobster armour.",
+        "Change 'start growing' (present) to 'started growing' (past) so it matches 'glowed' and 'looked'."
+      ],
+      "options": [
+        {
+          "label": "Option A: First-Person Power-Up",
+          "text": "I pinched the rocky ground, sending a misty grey fog swirling across the ocean floor. \"Leave before you get hurt!\" the kelp monster roared. In response, my purple shell glowed and hardened into battle armour, while my claws started growing larger and razor-sharp."
+        },
+        {
+          "label": "Option B: Super Close to Original",
+          "text": "I pinched the ground and a misty grey fog appeared on the ocean floor. The kelp monster growled, \"Leave before you get hurt.\" Suddenly, my lobster shell glowed and started to look like armour. My claws started growing and looked sharper than ever."
+        },
+        {
+          "label": "Option C: Suspenseful Battle Stance",
+          "text": "Snapping my claws against the ground, I raised a cloud of misty grey fog across the seabed. \"Leave before you get hurt,\" the kelp monster hissed. Instead of retreating, I felt my shell glow and transform into heavy armour as my claws grew longer and deadlier."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Station 4: Sonic Lightning Deflection (Cutting 'And then')",
+      "original": "And then the green kelp monster held a ball of lightning and hit it straight towards the lobster. The lobster's armour started growing stronger and changed colour. The lightning burst through sonic speed and tsunami were crashing and after all the impact bounced off the lobster's shell and hit straight at the green kelp monster.",
+      "glitch_name": "The 'And Then' Run-On Overload",
+      "glitch_explanation": [
+        "When an action scene gets super exciting, it's easy to chain everything together with 'And then... and... and...'",
+        "Breaking the lightning attack into two crisp sentences makes the sonic deflection feel much more powerful!"
+      ],
+      "options": [
+        {
+          "label": "Option A: High-Impact Deflection",
+          "text": "Without warning, the green kelp monster hurled a crackling ball of lightning straight at me! My armour grew even stronger and shifted colour as the bolt struck at sonic speed, sending underwater shockwaves crashing around us—before the blast bounced right off my shell and ricocheted back at the monster!"
+        },
+        {
+          "label": "Option B: Close to Original (Cleaned Up)",
+          "text": "Suddenly, the green kelp monster held a ball of lightning and hurled it straight towards me. My armour grew stronger and changed colour. The lightning burst at sonic speed as huge waves crashed, but the impact bounced off my shell and shot straight back at the green kelp monster!"
+        },
+        {
+          "label": "Option C: Slow-Motion Suspense",
+          "text": "The kelp monster gathered a blinding ball of lightning and fired it straight at my chest. Just in time, my armour flared with colour and grew impenetrable. Travelling at sonic speed, the bolt slammed into my shell, stirred up a raging underwater tsunami, and rebounded straight into the monster!"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Station 5: The Turquoise Evolution (Fixing the Final Combo)",
+      "original": "The lobster sharpened his claws and lifted one up in the air lightning absorbed in its claws, and fitted the green kelp monster's amber eye, and got and defeated. And then the ocean ruins started to open an unleashed the lobster shell to get even more powerful. Then it turned into a turquoise glowing blue and his claws were sharp as needles.",
+      "glitch_name": "Brain Faster Than The Pencil Glitch",
+      "glitch_explanation": [
+        "At the very end of the 50-minute timer, your brain had an awesome finisher move in mind, so a few words got tangled: 'fitted' instead of 'hit', 'got and defeated', and 'open an unleashed'.",
+        "Let's make that final lightning claw strike and your Level 99 Turquoise Evolution crystal clear!"
+      ],
+      "options": [
+        {
+          "label": "Option A: Epic Boss Finisher",
+          "text": "I sharpened my claws, raised one high into the water to absorb the stray lightning, and struck the green kelp monster right in its glowing amber eye—defeating it in a single blow! As the monster fell, the ancient ocean ruins rumbled open and unleashed a surge of energy into my shell. My armour turned a glowing turquoise blue, and my claws became as sharp as needles."
+        },
+        {
+          "label": "Option B: Close to Original (Polished)",
+          "text": "I sharpened my claws and lifted one up, absorbing the lightning into my pincer before striking the green kelp monster's amber eye until it was defeated. At last, the ocean ruins started to open and unleashed ancient power into my shell. I turned a glowing turquoise blue, and my claws were as sharp as needles."
+        },
+        {
+          "label": "Option C: Mysterious Vault Ending",
+          "text": "Absorbing the remaining lightning into my raised claw, I lunged forward and struck the monster's glowing amber eye, defeating the guardian once and for all. Slowly, the compass-shaped vault creaked open, unleashing its hidden power over me until my shell blazed with a turquoise glow and my claws gleamed like needles."
+        }
+      ]
+    }
+  ]
+};
+
+    // Fix relative asset paths so they resolve whether opened from project root or /public
+    STORY_DATA.characters[0].image = "./public/assets/purple_lobster_lvl1.png";
+    STORY_DATA.characters[0].fallbackImage = "./assets/purple_lobster_lvl1.png";
+    STORY_DATA.characters[1].image = "./public/assets/kelp_monster_boss.png";
+    STORY_DATA.characters[1].fallbackImage = "./assets/kelp_monster_boss.png";
+    STORY_DATA.characters[2].image = "./public/assets/turquoise_lobster_lvl99.png";
+    STORY_DATA.characters[2].fallbackImage = "./assets/turquoise_lobster_lvl99.png";
+
+    let state = {
+      currentStationIdx: 0,
+      activeCharIdx: 0,
+      collectedGems: [0, 1, 2, 3, 4],
+      selectedOptions: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
+      customTexts: {},
+      viewMode: "quest" // "quest" | "final" | "worksheet"
+    };
+
+    function getStationText(stationId) {
+      if (state.customTexts[stationId] && state.customTexts[stationId].trim() !== "") {
+        return state.customTexts[stationId];
+      }
+      const st = STORY_DATA.stations.find(s => s.id === stationId);
+      const optIdx = state.selectedOptions[stationId] ?? 0;
+      return st.options[optIdx].text;
+    }
+
+    function calculateXP() {
+      const gemXP = state.collectedGems.length * 80;
+      const stationXP = Object.keys(state.selectedOptions).length * 120;
+      return gemXP + stationXP;
+    }
+
+    function selectCharacterForStation(idx) {
+      if (idx === 0 || idx === 2) state.activeCharIdx = 0;
+      if (idx === 1 || idx === 3) state.activeCharIdx = 1;
+      if (idx === 4) state.activeCharIdx = 2;
+    }
+
+    function setStation(idx) {
+      state.currentStationIdx = idx;
+      selectCharacterForStation(idx);
+      state.viewMode = "quest";
+      render();
+    }
+
+    function chooseOption(stationId, optIdx) {
+      state.selectedOptions[stationId] = optIdx;
+      delete state.customTexts[stationId];
+      render();
+    }
+
+    function updateCustomText(stationId, val) {
+      state.customTexts[stationId] = val;
+      renderPreviewOnly();
+    }
+
+    function renderPreviewOnly() {
+      const previewEl = document.getElementById("live-story-preview");
+      if (!previewEl) return;
+      previewEl.innerHTML = STORY_DATA.stations.map((s, idx) => {
+        const isCurrent = idx === state.currentStationIdx;
+        return `<span class="transition-all duration-200 ${isCurrent ? 'bg-teal-500/30 text-teal-200 px-1.5 py-0.5 rounded border border-teal-400/50 font-semibold' : 'text-slate-300'}">${getStationText(s.id)}</span>`;
+      }).join(" ");
+    }
+
+    function copyFinalStory() {
+      const fullText = STORY_DATA.stations.map(s => getStationText(s.id)).join("\n\n");
+      navigator.clipboard.writeText(fullText);
+      const btn = document.getElementById("copy-btn");
+      if (btn) {
+        btn.innerText = "Copied to Clipboard!";
+        setTimeout(() => { btn.innerText = "Copy Upgraded Story"; }, 2000);
+      }
+    }
+
+    function render() {
+      const app = document.getElementById("app");
+      const station = STORY_DATA.stations[state.currentStationIdx];
+      const activeChar = STORY_DATA.characters[state.activeCharIdx];
+      const xp = calculateXP();
+
+      app.innerHTML = `
+        <!-- Top Header Bar -->
+        <header class="bg-slate-900/90 border border-teal-500/30 rounded-2xl p-4 md:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600 to-teal-400 p-0.5 shadow-lg">
+              <img src="${activeChar.image}" onerror="this.src='${activeChar.fallbackImage}'" alt="${activeChar.name}" class="w-full h-full object-cover rounded-2xl" />
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-400/30 font-bold">Lobster First-Person POV Edition</span>
+              <h1 class="text-2xl md:text-3xl font-bold text-white mt-1">The Sunken Vault: Tudor's Story Power-Up</h1>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="bg-slate-800/90 border border-amber-400/40 px-4 py-2 rounded-xl text-center">
+              <div class="text-xs text-amber-300 uppercase font-bold">Power Level</div>
+              <div class="text-xl font-heading font-bold text-amber-400">${xp} XP</div>
+            </div>
+            <button onclick="state.viewMode='quest'; render();" class="px-4 py-2.5 rounded-xl font-bold text-sm transition ${state.viewMode==='quest' ? 'bg-teal-500 text-slate-950 shadow-lg' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}">
+              Upgrade Stations
+            </button>
+            <button onclick="state.viewMode='final'; render();" class="px-4 py-2.5 rounded-xl font-bold text-sm transition ${state.viewMode==='final' ? 'bg-purple-500 text-white shadow-lg' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}">
+              Final Story
+            </button>
+            <button onclick="state.viewMode='worksheet'; render();" class="px-4 py-2.5 rounded-xl font-bold text-sm transition ${state.viewMode==='worksheet' ? 'bg-amber-500 text-slate-950 shadow-lg' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}">
+              Original Scans
+            </button>
+          </div>
+        </header>
+
+        <!-- Tudor's Vocabulary Gems Bar -->
+        <section class="bg-slate-900/75 border border-purple-500/30 rounded-2xl p-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <h2 class="text-sm font-bold uppercase tracking-wider text-purple-300">Tudor's Original Vocabulary Gems (Already Unlocked in Draft 1!)</h2>
+            <span class="text-xs text-slate-400">These awesome words from your first draft are kept inside the upgrades below:</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+            ${STORY_DATA.vocabulary_gems.map((g, i) => `
+              <div class="bg-slate-800/90 border border-purple-400/40 rounded-xl p-2.5 flex flex-col justify-between">
+                <div class="font-heading font-bold text-teal-300 text-sm">💎 ${g.word}</div>
+                <div class="text-xs text-slate-300 mt-1">${g.meaning}</div>
+              </div>
+            `).join("")}
+          </div>
+        </section>
+
+        ${state.viewMode === 'quest' ? `
+          <!-- Main 12-Col Quest Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <!-- Left Column: Interactive Station (7 cols) -->
+            <div class="lg:col-span-7 space-y-5">
+              <!-- Station Stepper -->
+              <div class="flex items-center gap-2 overflow-x-auto pb-1">
+                ${STORY_DATA.stations.map((s, idx) => `
+                  <button onclick="setStation(${idx})" class="flex-1 min-w-[110px] py-2.5 px-3 rounded-xl font-heading font-bold text-sm border transition ${idx === state.currentStationIdx ? 'bg-teal-500 text-slate-950 border-teal-300 shadow-lg' : 'bg-slate-900/80 text-slate-300 border-slate-700 hover:border-teal-500/50'}">
+                    Station ${s.id}
+                  </button>
+                `).join("")}
+              </div>
+
+              <!-- Active Station Card -->
+              <div class="bg-slate-900/90 border border-teal-500/40 rounded-2xl p-5 space-y-5 shadow-2xl">
+                <div class="flex items-center justify-between">
+                  <h2 class="text-xl md:text-2xl font-bold text-teal-300">${station.title}</h2>
+                  <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-800 text-slate-300">Part ${station.id} of 5</span>
+                </div>
+
+                <!-- Original Draft Box -->
+                <div class="bg-slate-950/80 border border-slate-700 rounded-xl p-3.5">
+                  <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">📜 Tudor's First Draft (With Teacher's Blue Pen Marks):</div>
+                  <p class="text-slate-200 italic text-sm leading-relaxed">"${station.original}"</p>
+                </div>
+
+                <!-- Friendly Glitch Detector Box -->
+                <div class="bg-amber-950/40 border border-amber-500/40 rounded-xl p-4 space-y-2">
+                  <div class="flex items-center gap-2 text-amber-300 font-heading font-bold text-base">
+                    <span>🕵️‍♂️ Game Glitch Detector: ${station.glitch_name}</span>
+                  </div>
+                  <ul class="space-y-1.5 text-xs md:text-sm text-amber-100/90 list-disc list-inside">
+                    ${station.glitch_explanation.map(item => `<li>${item}</li>`).join("")}
+                  </ul>
+                </div>
+
+                <!-- 3 Upgrade Choices -->
+                <div class="space-y-3">
+                  <div class="text-xs font-bold uppercase tracking-wider text-teal-300">⚡ Tap a Power-Up Version (or tweak it below):</div>
+                  ${station.options.map((opt, oIdx) => {
+                    const isSelected = (state.selectedOptions[station.id] === oIdx) && !state.customTexts[station.id];
+                    return `
+                      <div onclick="chooseOption(${station.id}, ${oIdx})" class="cursor-pointer rounded-xl p-4 border transition-all ${isSelected ? 'bg-teal-950/70 border-teal-400 shadow-lg ring-2 ring-teal-400/30' : 'bg-slate-800/70 border-slate-700 hover:border-slate-500'}">
+                        <div class="flex items-center justify-between mb-1.5">
+                          <span class="font-heading font-bold text-sm ${isSelected ? 'text-teal-300' : 'text-purple-300'}">${opt.label}</span>
+                          <span class="text-xs px-2 py-0.5 rounded-full ${isSelected ? 'bg-teal-400 text-slate-950 font-bold' : 'bg-slate-700 text-slate-300'}">${isSelected ? '✓ Active' : 'Click to Equip'}</span>
+                        </div>
+                        <p class="text-sm text-white leading-relaxed">${opt.text}</p>
+                      </div>
+                    `;
+                  }).join("")}
+                </div>
+
+                <!-- Custom Remix Box -->
+                <div class="pt-2">
+                  <label class="block text-xs font-bold uppercase tracking-wider text-purple-300 mb-1.5">✍️ Or Write / Remix Your Own Version for Station ${station.id}:</label>
+                  <textarea
+                    rows="3"
+                    oninput="updateCustomText(${station.id}, this.value)"
+                    placeholder="Type your own custom sentences here if you want to remix the option above..."
+                    class="w-full rounded-xl bg-slate-950 border border-purple-500/40 p-3 text-sm text-white focus:outline-none focus:border-teal-400"
+                  >${state.customTexts[station.id] || ""}</textarea>
+                </div>
+
+                <!-- Prev / Next Navigation -->
+                <div class="flex items-center justify-between pt-2">
+                  <button
+                    onclick="${state.currentStationIdx > 0 ? `setStation(${state.currentStationIdx - 1})` : ''}"
+                    class="px-4 py-2 rounded-xl font-bold text-sm ${state.currentStationIdx > 0 ? 'bg-slate-800 text-white hover:bg-slate-700' : 'bg-slate-900 text-slate-600 cursor-not-allowed'}"
+                  >
+                    ← Previous Station
+                  </button>
+                  ${state.currentStationIdx < STORY_DATA.stations.length - 1 ? `
+                    <button onclick="setStation(${state.currentStationIdx + 1})" class="px-5 py-2.5 rounded-xl font-bold text-sm bg-gradient-to-r from-teal-400 to-emerald-400 text-slate-950 shadow-lg hover:opacity-95">
+                      Next Station →
+                    </button>
+                  ` : `
+                    <button onclick="state.viewMode='final'; render();" class="px-5 py-2.5 rounded-xl font-bold text-sm bg-gradient-to-r from-purple-500 to-teal-400 text-white shadow-lg">
+                      🎉 View Completed Story!
+                    </button>
+                  `}
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Character Codex + Live Story Preview (5 cols) -->
+            <div class="lg:col-span-5 space-y-5">
+              
+              <!-- Interactive Character Codex Card -->
+              <div class="bg-slate-900/90 border border-purple-500/40 rounded-2xl p-4 space-y-4 shadow-xl">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-heading font-bold text-lg text-white">🦞 Character Battle Codex</h3>
+                  <div class="flex gap-1.5">
+                    ${STORY_DATA.characters.map((c, cIdx) => `
+                      <button onclick="state.activeCharIdx=${cIdx}; render();" class="px-2.5 py-1 rounded-lg text-xs font-bold transition ${state.activeCharIdx === cIdx ? 'bg-purple-500 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}">
+                        ${cIdx === 0 ? 'Lvl 1 Lobster' : cIdx === 1 ? 'Kelp Boss' : 'Lvl 99 Turquoise'}
+                      </button>
+                    `).join("")}
+                  </div>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden border-2 ${state.activeCharIdx === 0 ? 'border-purple-500 card-glow-purple' : state.activeCharIdx === 1 ? 'border-amber-500 card-glow-amber' : 'border-teal-400 card-glow-turquoise'}">
+                  <img src="${activeChar.image}" onerror="this.src='${activeChar.fallbackImage}'" alt="${activeChar.name}" class="w-full h-72 object-cover" />
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent p-4">
+                    <span class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-400/30">${activeChar.role}</span>
+                    <h4 class="text-xl font-heading font-bold text-white mt-1">${activeChar.name}</h4>
+                    <p class="text-xs text-slate-300 mt-0.5">${activeChar.desc}</p>
+                  </div>
+                </div>
+
+                <!-- Character Stats Bars -->
+                <div class="grid grid-cols-3 gap-2 pt-1">
+                  ${Object.entries(activeChar.stats).map(([k, v]) => `
+                    <div class="bg-slate-800/80 rounded-xl p-2.5 border border-slate-700">
+                      <div class="text-[11px] text-slate-400 font-bold uppercase">${k}</div>
+                      <div class="text-base font-heading font-bold text-teal-300">${v}/100</div>
+                      <div class="w-full bg-slate-950 h-1.5 rounded-full mt-1 overflow-hidden">
+                        <div class="bg-gradient-to-r from-purple-500 to-teal-400 h-full" style="width:${v}%"></div>
+                      </div>
+                    </div>
+                  `).join("")}
+                </div>
+              </div>
+
+              <!-- Live Complete Story Preview -->
+              <div class="bg-slate-900/90 border border-teal-500/30 rounded-2xl p-4 space-y-3 shadow-xl">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-heading font-bold text-base text-teal-300">📖 Live Upgraded Story Preview</h3>
+                  <button id="copy-btn" onclick="copyFinalStory()" class="text-xs bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 border border-teal-400/40 px-3 py-1 rounded-lg font-bold">
+                    Copy Upgraded Story
+                  </button>
+                </div>
+                <div id="live-story-preview" class="bg-slate-950/90 border border-slate-800 rounded-xl p-4 text-sm leading-relaxed space-x-1">
+                  ${STORY_DATA.stations.map((s, idx) => {
+                    const isCurrent = idx === state.currentStationIdx;
+                    return `<span onclick="setStation(${idx})" class="cursor-pointer transition-all duration-200 ${isCurrent ? 'bg-teal-500/30 text-teal-200 px-1.5 py-0.5 rounded border border-teal-400/50 font-semibold' : 'text-slate-300 hover:text-white'}">${getStationText(s.id)}</span>`;
+                  }).join(" ")}
+                </div>
+              </div>
+
+            </div>
+          </div>
+        ` : state.viewMode === 'final' ? `
+          <!-- Final Side-by-Side Story Comparison View -->
+          <div class="bg-slate-900/90 border border-teal-400/40 rounded-2xl p-6 space-y-6 shadow-2xl">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div>
+                <span class="text-xs font-bold uppercase px-3 py-1 rounded-full bg-teal-500/20 text-teal-300">Level 99 Turquoise Evolution Complete!</span>
+                <h2 class="text-2xl font-bold text-white mt-1">Tudor's Before & After Story Comparison</h2>
+              </div>
+              <button id="copy-btn" onclick="copyFinalStory()" class="px-5 py-2.5 rounded-xl font-bold text-sm bg-teal-400 text-slate-950 shadow-lg">
+                Copy Upgraded Story
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              ${STORY_DATA.characters.map(c => `
+                <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-3 flex items-center gap-3">
+                  <img src="${c.image}" onerror="this.src='${c.fallbackImage}'" class="w-16 h-16 rounded-xl object-cover border border-teal-400/40" />
+                  <div>
+                    <div class="text-xs text-teal-300 font-bold">${c.role}</div>
+                    <div class="font-heading font-bold text-white text-sm">${c.name}</div>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-5 space-y-3">
+                <h3 class="font-heading font-bold text-slate-400 text-base">📄 Original First Draft (6.5/10)</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">${STORY_DATA.stations.map(s => s.original).join(" ")}</p>
+              </div>
+              <div class="bg-teal-950/30 border border-teal-400/50 rounded-xl p-5 space-y-3">
+                <h3 class="font-heading font-bold text-teal-300 text-base">🌟 Upgraded First-Person Lobster Draft (9.5/10)</h3>
+                <div class="space-y-3 text-sm text-white leading-relaxed">
+                  ${STORY_DATA.stations.map(s => `<p>${getStationText(s.id)}</p>`).join("")}
+                </div>
+              </div>
+            </div>
+          </div>
+        ` : `
+          <!-- Original Worksheet & Scans View -->
+          <div class="bg-slate-900/90 border border-amber-500/40 rounded-2xl p-6 space-y-4 shadow-2xl">
+            <h2 class="text-xl font-bold text-amber-300">Original Worksheet & Tudor's Marked Text Scans</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <div class="text-xs font-bold uppercase text-slate-400">Page 1: Tudor's Text with Teacher Annotations</div>
+                <img src="${ASSET_PATHS.original_draft}" onerror="this.src='./assets/worksheet_page1_img1.jpg'" class="w-full rounded-xl border border-slate-700" />
+              </div>
+              <div class="space-y-2">
+                <div class="text-xs font-bold uppercase text-slate-400">Page 2: Week 1 Creative Writing Prompt (The Sunken Vault)</div>
+                <img src="${ASSET_PATHS.worksheet_prompt}" onerror="this.src='./assets/worksheet_page2_img1.jpg'" class="w-full rounded-xl border border-slate-700" />
+              </div>
+            </div>
+          </div>
+        `}
+      `;
+    }
+
+    render();
+  </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+{
+  "title": "The Sunken Vault: Lobster POV Quest",
+  "author": "Tudor",
+  "characters": [
+    {
+      "id": "hero_lvl1",
+      "name": "Mythical Purple Lobster",
+      "role": "Level 1 Narrator ('I')",
+      "image": "./assets/purple_lobster_lvl1.png",
+      "stats": {
+        "Armour": 65,
+        "Claw Sharpness": 70,
+        "Stealth": 85
+      },
+      "desc": "Gloomy purple armour shell with shimmering green eyes like emeralds and sensitive antennae."
+    },
+    {
+      "id": "boss_kelp",
+      "name": "Colossal Green Kelp Monster",
+      "role": "Vault Guardian Boss",
+      "image": "./assets/kelp_monster_boss.png",
+      "stats": {
+        "Armour": 80,
+        "Lightning Power": 95,
+        "Stealth": 60
+      },
+      "desc": "Rises from the murky fog with glowing amber eyes, hurling balls of underwater lightning."
+    },
+    {
+      "id": "hero_lvl99",
+      "name": "Turquoise Lightning Lobster",
+      "role": "Level 99 Evolved Hero",
+      "image": "./assets/turquoise_lobster_lvl99.png",
+      "stats": {
+        "Armour": 100,
+        "Claw Sharpness": 100,
+        "Lightning": 100
+      },
+      "desc": "Unleashed by the ancient ocean ruins! Glowing turquoise-blue shell with claws sharp as needles."
+    }
+  ],
+  "vocabulary_gems": [
+    {
+      "word": "Colossal",
+      "meaning": "Gigantic, like a boss monster"
+    },
+    {
+      "word": "Murky",
+      "meaning": "Dark, cloudy, mysterious water"
+    },
+    {
+      "word": "Shimmering Emeralds",
+      "meaning": "Glowing green gem eyes"
+    },
+    {
+      "word": "Sonic Speed",
+      "meaning": "Faster than the speed of sound"
+    },
+    {
+      "word": "Turquoise",
+      "meaning": "Glowing electric blue-green armour"
+    }
+  ],
+  "stations": [
+    {
+      "id": 1,
+      "title": "Station 1: The Lobster's Secret Opening (Senses & Tense)",
+      "original": "Under the sea there was a sunken compass shaped vault. It had the smell of plain white salt. I have heard a big wave crush in the horizon. I saw a colossal green kelp growing from the rocky ocean floor. I have touched an iron switch and a part of the middle of the ocean ruin has exploded.",
+      "glitch_name": "Underwater Physics & Time-Travel Glitch",
+      "glitch_explanation": [
+        "Physics Check: Because you are a lobster deep on the ocean floor, you can't smell dry white salt in the air or hear a wave on the horizon—instead, your lobster antennae TASTE the salty current and FEEL the deep rumble of waves far above!",
+        "Time-Travel Fix: Change 'I have heard / I have touched / has exploded' into past tense ('I heard / I touched / exploded') so all actions happen in the same story timeline.",
+        "Spelling Power-Up: 'crush' -> 'crash', plus a hyphen in 'compass-shaped'."
+      ],
+      "options": [
+        {
+          "label": "Option A: The Antennae & Claw Clue (Subtle Suspense)",
+          "text": "Deep under the sea, I crept across the rocky ocean floor toward a sunken, compass-shaped vault. My long antennae twitched at the taste of plain white salt, and I felt the deep rumble of a giant wave crashing far above. Stepping past the colossal green kelp, I reached out with my heavy claw and pressed an iron switch—and the middle of the ocean ruin exploded!"
+        },
+        {
+          "label": "Option B: Close to Original (Clean & Punchy)",
+          "text": "Under the sea, there was a sunken, compass-shaped vault. The water tasted of plain white salt, and I heard a huge wave crash far above. I saw colossal green kelp growing from the rocky ocean floor. Carefully, I touched an iron switch with my claw, and the middle of the ocean ruin exploded!"
+        },
+        {
+          "label": "Option C: Action Stealth Opening",
+          "text": "Down on the dark, rocky ocean floor, I stood before a sunken, compass-shaped vault. Tasting the salty current, I heard the distant thunder of a massive wave crashing overhead. Beside a forest of colossal green kelp, I scraped an iron switch, and the ancient ruin exploded in a blinding flash!"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Station 2: The Big Reveal! (I Am The Lobster)",
+      "original": "In the murky water the big green kelp monster has appeared through that watery fog with its amber glowing eyes. It stares at the mythical gloomy purple lobster. With its shimmering green eyes like emeralds, the lobster stared back at the colossal kelp monster.",
+      "glitch_name": "Camera Switch Glitch (Who is 'I'?)",
+      "glitch_explanation": [
+        "In your original draft, 'I' pressed the switch, and then the camera floated away to talk about 'the lobster' as if it were someone else!",
+        "Since YOU are the lobster, this is the coolest moment to reveal it to the reader using 'me' and 'my'!"
+      ],
+      "options": [
+        {
+          "label": "Option A: The Surprise Monster Reveal",
+          "text": "In the murky water, a big green kelp monster appeared through the watery fog with glowing amber eyes. It stared down at me, not realizing I was no ordinary creature—I was a mythical, gloomy purple lobster! With my shimmering green eyes like emeralds, I stared right back at the colossal beast."
+        },
+        {
+          "label": "Option B: The Flashing Shell Reveal",
+          "text": "Through the murky fog, a giant green kelp monster appeared with glowing amber eyes. As the explosion's light flashed across my gloomy purple shell, the monster locked onto me. With my shimmering green eyes like emeralds, I stared fearlessly back at the colossal kelp monster."
+        },
+        {
+          "label": "Option C: Short & Fierce",
+          "text": "In the murky water, the big green kelp monster appeared through the fog with its glowing amber eyes. It glared down at my mythical, gloomy purple lobster shell. Shining my emerald-green eyes through the dark water, I stared right back at the colossal monster."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Station 3: Armour Up! (First-Person & Apostrophes)",
+      "original": "The lobster pinched the ground and a misty grey fog appeared on the ocean floor. The kelp monster said: \"Leave before you get hurt.\" Then the lobsters shell glowed and started to look like armour. The lobster's claws start growing and looked sharper.",
+      "glitch_name": "Pronoun & Tense Sync",
+      "glitch_explanation": [
+        "Swap 'The lobster' and 'the lobsters shell' to 'I' and 'my shell' so we stay inside your lobster armour.",
+        "Change 'start growing' (present) to 'started growing' (past) so it matches 'glowed' and 'looked'."
+      ],
+      "options": [
+        {
+          "label": "Option A: First-Person Power-Up",
+          "text": "I pinched the rocky ground, sending a misty grey fog swirling across the ocean floor. \"Leave before you get hurt!\" the kelp monster roared. In response, my purple shell glowed and hardened into battle armour, while my claws started growing larger and razor-sharp."
+        },
+        {
+          "label": "Option B: Super Close to Original",
+          "text": "I pinched the ground and a misty grey fog appeared on the ocean floor. The kelp monster growled, \"Leave before you get hurt.\" Suddenly, my lobster shell glowed and started to look like armour. My claws started growing and looked sharper than ever."
+        },
+        {
+          "label": "Option C: Suspenseful Battle Stance",
+          "text": "Snapping my claws against the ground, I raised a cloud of misty grey fog across the seabed. \"Leave before you get hurt,\" the kelp monster hissed. Instead of retreating, I felt my shell glow and transform into heavy armour as my claws grew longer and deadlier."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Station 4: Sonic Lightning Deflection (Cutting 'And then')",
+      "original": "And then the green kelp monster held a ball of lightning and hit it straight towards the lobster. The lobster's armour started growing stronger and changed colour. The lightning burst through sonic speed and tsunami were crashing and after all the impact bounced off the lobster's shell and hit straight at the green kelp monster.",
+      "glitch_name": "The 'And Then' Run-On Overload",
+      "glitch_explanation": [
+        "When an action scene gets super exciting, it's easy to chain everything together with 'And then... and... and...'",
+        "Breaking the lightning attack into two crisp sentences makes the sonic deflection feel much more powerful!"
+      ],
+      "options": [
+        {
+          "label": "Option A: High-Impact Deflection",
+          "text": "Without warning, the green kelp monster hurled a crackling ball of lightning straight at me! My armour grew even stronger and shifted colour as the bolt struck at sonic speed, sending underwater shockwaves crashing around us—before the blast bounced right off my shell and ricocheted back at the monster!"
+        },
+        {
+          "label": "Option B: Close to Original (Cleaned Up)",
+          "text": "Suddenly, the green kelp monster held a ball of lightning and hurled it straight towards me. My armour grew stronger and changed colour. The lightning burst at sonic speed as huge waves crashed, but the impact bounced off my shell and shot straight back at the green kelp monster!"
+        },
+        {
+          "label": "Option C: Slow-Motion Suspense",
+          "text": "The kelp monster gathered a blinding ball of lightning and fired it straight at my chest. Just in time, my armour flared with colour and grew impenetrable. Travelling at sonic speed, the bolt slammed into my shell, stirred up a raging underwater tsunami, and rebounded straight into the monster!"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Station 5: The Turquoise Evolution (Fixing the Final Combo)",
+      "original": "The lobster sharpened his claws and lifted one up in the air lightning absorbed in its claws, and fitted the green kelp monster's amber eye, and got and defeated. And then the ocean ruins started to open an unleashed the lobster shell to get even more powerful. Then it turned into a turquoise glowing blue and his claws were sharp as needles.",
+      "glitch_name": "Brain Faster Than The Pencil Glitch",
+      "glitch_explanation": [
+        "At the very end of the 50-minute timer, your brain had an awesome finisher move in mind, so a few words got tangled: 'fitted' instead of 'hit', 'got and defeated', and 'open an unleashed'.",
+        "Let's make that final lightning claw strike and your Level 99 Turquoise Evolution crystal clear!"
+      ],
+      "options": [
+        {
+          "label": "Option A: Epic Boss Finisher",
+          "text": "I sharpened my claws, raised one high into the water to absorb the stray lightning, and struck the green kelp monster right in its glowing amber eye—defeating it in a single blow! As the monster fell, the ancient ocean ruins rumbled open and unleashed a surge of energy into my shell. My armour turned a glowing turquoise blue, and my claws became as sharp as needles."
+        },
+        {
+          "label": "Option B: Close to Original (Polished)",
+          "text": "I sharpened my claws and lifted one up, absorbing the lightning into my pincer before striking the green kelp monster's amber eye until it was defeated. At last, the ocean ruins started to open and unleashed ancient power into my shell. I turned a glowing turquoise blue, and my claws were as sharp as needles."
+        },
+        {
+          "label": "Option C: Mysterious Vault Ending",
+          "text": "Absorbing the remaining lightning into my raised claw, I lunged forward and struck the monster's glowing amber eye, defeating the guardian once and for all. Slowly, the compass-shaped vault creaked open, unleashing its hidden power over me until my shell blazed with a turquoise glow and my claws gleamed like needles."
+        }
+      ]
+    }
+  ]
+}

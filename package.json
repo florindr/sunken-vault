@@ -1,0 +1,12 @@
+{
+  "name": "sunken-vault",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler pages deploy . --project-name=sunken-vault --branch=main"
+  },
+  "devDependencies": {
+    "wrangler": "^4.156.0"
+  }
+}
