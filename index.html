@@ -37,7 +37,12 @@
       kelp_monster: "./public/assets/kelp_monster_boss.png",
       turquoise_lobster: "./public/assets/turquoise_lobster_lvl99.png",
       worksheet_prompt: "./public/assets/worksheet_page2_img1.jpg",
-      original_draft: "./public/assets/worksheet_page1_img1.jpg"
+      original_draft: "./public/assets/worksheet_page1_img1.jpg",
+      scene1: "./public/assets/scene1_vault_explosion.jpg",
+      scene2: "./public/assets/scene2_monster_staredown.jpg",
+      scene3: "./public/assets/scene3_lobster_powerup.jpg",
+      scene4: "./public/assets/scene4_lightning_clash.jpg",
+      scene5: "./public/assets/scene5_turquoise_victory.jpg"
     };
 
     const STORY_DATA = {
@@ -107,6 +112,8 @@
     {
       "id": 1,
       "title": "Station 1: The Lobster's Secret Opening (Senses & Tense)",
+      "scene_image": "./public/assets/scene1_vault_explosion.jpg",
+      "scene_caption": "The Compass Vault Explodes as the Iron Switch is Triggered",
       "original": "Under the sea there was a sunken compass shaped vault. It had the smell of plain white salt. I have heard a big wave crush in the horizon. I saw a colossal green kelp growing from the rocky ocean floor. I have touched an iron switch and a part of the middle of the ocean ruin has exploded.",
       "glitch_name": "Underwater Physics & Time-Travel Glitch",
       "glitch_explanation": [
@@ -132,6 +139,8 @@
     {
       "id": 2,
       "title": "Station 2: The Big Reveal! (I Am The Lobster)",
+      "scene_image": "./public/assets/scene2_monster_staredown.jpg",
+      "scene_caption": "Undersea Staredown: Mythical Purple Lobster vs. Colossal Kelp Monster",
       "original": "In the murky water the big green kelp monster has appeared through that watery fog with its amber glowing eyes. It stares at the mythical gloomy purple lobster. With its shimmering green eyes like emeralds, the lobster stared back at the colossal kelp monster.",
       "glitch_name": "Camera Switch Glitch (Who is 'I'?)",
       "glitch_explanation": [
@@ -156,6 +165,8 @@
     {
       "id": 3,
       "title": "Station 3: Armour Up! (First-Person & Apostrophes)",
+      "scene_image": "./public/assets/scene3_lobster_powerup.jpg",
+      "scene_caption": "Armour Power-Up: Shell Hardens & Claws Grow Razor-Sharp",
       "original": "The lobster pinched the ground and a misty grey fog appeared on the ocean floor. The kelp monster said: \"Leave before you get hurt.\" Then the lobsters shell glowed and started to look like armour. The lobster's claws start growing and looked sharper.",
       "glitch_name": "Pronoun & Tense Sync",
       "glitch_explanation": [
@@ -180,6 +191,8 @@
     {
       "id": 4,
       "title": "Station 4: Sonic Lightning Deflection (Cutting 'And then')",
+      "scene_image": "./public/assets/scene4_lightning_clash.jpg",
+      "scene_caption": "Underwater Boss Fight: Sonic Lightning Deflected Off Armoured Shell",
       "original": "And then the green kelp monster held a ball of lightning and hit it straight towards the lobster. The lobster's armour started growing stronger and changed colour. The lightning burst through sonic speed and tsunami were crashing and after all the impact bounced off the lobster's shell and hit straight at the green kelp monster.",
       "glitch_name": "The 'And Then' Run-On Overload",
       "glitch_explanation": [
@@ -204,6 +217,8 @@
     {
       "id": 5,
       "title": "Station 5: The Turquoise Evolution (Fixing the Final Combo)",
+      "scene_image": "./public/assets/scene5_turquoise_victory.jpg",
+      "scene_caption": "Level 99 Turquoise Evolution: Vault Light Unleashed & Monster Defeated",
       "original": "The lobster sharpened his claws and lifted one up in the air lightning absorbed in its claws, and fitted the green kelp monster's amber eye, and got and defeated. And then the ocean ruins started to open an unleashed the lobster shell to get even more powerful. Then it turned into a turquoise glowing blue and his claws were sharp as needles.",
       "glitch_name": "Brain Faster Than The Pencil Glitch",
       "glitch_explanation": [
@@ -236,13 +251,17 @@
     STORY_DATA.characters[2].image = "./public/assets/turquoise_lobster_lvl99.png";
     STORY_DATA.characters[2].fallbackImage = "./assets/turquoise_lobster_lvl99.png";
 
+    STORY_DATA.stations.forEach(s => {
+      s.fallbackImage = s.scene_image.replace('./public/assets/', './assets/');
+    });
+
     let state = {
       currentStationIdx: 0,
       activeCharIdx: 0,
       collectedGems: [0, 1, 2, 3, 4],
       selectedOptions: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
       customTexts: {},
-      viewMode: "quest" // "quest" | "final" | "worksheet"
+      viewMode: "quest" // "quest" | "gallery" | "final" | "worksheet"
     };
 
     function getStationText(stationId) {
@@ -321,18 +340,21 @@
               <h1 class="text-2xl md:text-3xl font-bold text-white mt-1">The Sunken Vault: Tudor's Story Power-Up</h1>
             </div>
           </div>
-          <div class="flex items-center gap-3">
-            <div class="bg-slate-800/90 border border-amber-400/40 px-4 py-2 rounded-xl text-center">
-              <div class="text-xs text-amber-300 uppercase font-bold">Power Level</div>
-              <div class="text-xl font-heading font-bold text-amber-400">${xp} XP</div>
+          <div class="flex items-center gap-2 md:gap-3 flex-wrap justify-end">
+            <div class="bg-slate-800/90 border border-amber-400/40 px-3.5 py-1.5 rounded-xl text-center">
+              <div class="text-[10px] text-amber-300 uppercase font-bold">Power Level</div>
+              <div class="text-lg font-heading font-bold text-amber-400">${xp} XP</div>
             </div>
-            <button onclick="state.viewMode='quest'; render();" class="px-4 py-2.5 rounded-xl font-bold text-sm transition ${state.viewMode==='quest' ? 'bg-teal-500 text-slate-950 shadow-lg' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}">
+            <button onclick="state.viewMode='quest'; render();" class="px-3.5 py-2 rounded-xl font-bold text-sm transition ${state.viewMode==='quest' ? 'bg-teal-500 text-slate-950 shadow-lg' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}">
               Upgrade Stations
             </button>
-            <button onclick="state.viewMode='final'; render();" class="px-4 py-2.5 rounded-xl font-bold text-sm transition ${state.viewMode==='final' ? 'bg-purple-500 text-white shadow-lg' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}">
+            <button onclick="state.viewMode='gallery'; render();" class="px-3.5 py-2 rounded-xl font-bold text-sm transition ${state.viewMode==='gallery' ? 'bg-emerald-500 text-slate-950 shadow-lg' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}">
+              ⚔️ Battle Storyboard
+            </button>
+            <button onclick="state.viewMode='final'; render();" class="px-3.5 py-2 rounded-xl font-bold text-sm transition ${state.viewMode==='final' ? 'bg-purple-500 text-white shadow-lg' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}">
               Final Story
             </button>
-            <button onclick="state.viewMode='worksheet'; render();" class="px-4 py-2.5 rounded-xl font-bold text-sm transition ${state.viewMode==='worksheet' ? 'bg-amber-500 text-slate-950 shadow-lg' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}">
+            <button onclick="state.viewMode='worksheet'; render();" class="px-3.5 py-2 rounded-xl font-bold text-sm transition ${state.viewMode==='worksheet' ? 'bg-amber-500 text-slate-950 shadow-lg' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}">
               Original Scans
             </button>
           </div>
@@ -374,6 +396,18 @@
                 <div class="flex items-center justify-between">
                   <h2 class="text-xl md:text-2xl font-bold text-teal-300">${station.title}</h2>
                   <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-800 text-slate-300">Part ${station.id} of 5</span>
+                </div>
+
+                <!-- Cinematic Scene Battle Illustration -->
+                <div class="relative rounded-2xl overflow-hidden border border-teal-500/40 shadow-2xl group">
+                  <img src="${station.scene_image}" onerror="this.src='${station.fallbackImage}'" alt="${station.scene_caption}" class="w-full h-56 sm:h-72 object-cover transform group-hover:scale-105 transition-all duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-4">
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-teal-500/30 text-teal-300 border border-teal-400/50 backdrop-blur-sm">Scene ${station.id} Visualizer</span>
+                      <span class="text-xs text-amber-300 font-semibold">⚔️ Underwater Boss Encounter</span>
+                    </div>
+                    <div class="text-sm sm:text-base font-heading font-bold text-white drop-shadow">${station.scene_caption}</div>
+                  </div>
                 </div>
 
                 <!-- Original Draft Box -->
@@ -534,6 +568,89 @@
                   ${STORY_DATA.stations.map(s => `<p>${getStationText(s.id)}</p>`).join("")}
                 </div>
               </div>
+            </div>
+
+            <!-- Illustrated Graphic Novel Story Strip (All 5 Acts) -->
+            <div class="pt-4 border-t border-slate-800 space-y-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-teal-400">Graphic Novel Edition</span>
+                  <h3 class="text-xl font-heading font-bold text-white mt-0.5">Tudor's Illustrated Story Saga</h3>
+                </div>
+                <button onclick="state.viewMode='gallery'; render();" class="text-xs bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-400/40 px-3 py-1.5 rounded-lg font-bold">
+                  View Full-Screen Battle Storyboard →
+                </button>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+                ${STORY_DATA.stations.map((s, idx) => `
+                  <div onclick="setStation(${idx})" class="cursor-pointer bg-slate-950/80 border border-slate-800 hover:border-teal-400/60 rounded-xl overflow-hidden group transition flex flex-col justify-between">
+                    <div class="relative h-36 overflow-hidden">
+                      <img src="${s.scene_image}" onerror="this.src='${s.fallbackImage}'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+                      <span class="absolute top-2 left-2 text-[10px] font-bold px-2 py-0.5 rounded bg-slate-950/80 text-teal-300">Act ${s.id}</span>
+                    </div>
+                    <div class="p-2.5 space-y-1">
+                      <div class="text-[11px] font-heading font-bold text-teal-300 truncate">${s.scene_caption}</div>
+                      <p class="text-[11px] text-slate-300 line-clamp-3">${getStationText(s.id)}</p>
+                    </div>
+                  </div>
+                `).join("")}
+              </div>
+            </div>
+          </div>
+        ` : state.viewMode === 'gallery' ? `
+          <!-- Full Battle Storyboard View (All 5 Scenes) -->
+          <div class="space-y-6">
+            <div class="bg-slate-900/90 border border-emerald-500/40 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
+              <div>
+                <span class="text-xs font-bold uppercase px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">Graphic Novel Storyboard</span>
+                <h2 class="text-2xl font-bold text-white mt-1">The Sunken Vault: Complete Underwater Battle Saga</h2>
+                <p class="text-xs text-slate-300 mt-1">All 5 action scenes from Tudor's story quest illustrated with dynamic boss battle artwork.</p>
+              </div>
+              <div class="flex gap-2">
+                <button onclick="state.viewMode='quest'; render();" class="px-4 py-2 rounded-xl font-bold text-sm bg-teal-500 text-slate-950 shadow-lg">
+                  ← Edit in Quest Mode
+                </button>
+                <button onclick="state.viewMode='final'; render();" class="px-4 py-2 rounded-xl font-bold text-sm bg-purple-500 text-white shadow-lg">
+                  Final Comparison →
+                </button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6">
+              ${STORY_DATA.stations.map((s, idx) => `
+                <div class="bg-slate-900/90 border border-teal-500/30 rounded-2xl overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-0">
+                  <div class="lg:col-span-7 relative group overflow-hidden min-h-[300px] md:min-h-[360px]">
+                    <img src="${s.scene_image}" onerror="this.src='${s.fallbackImage}'" alt="${s.scene_caption}" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-700" />
+                    <div class="absolute top-4 left-4 flex gap-2">
+                      <span class="text-xs font-heading font-bold px-3 py-1 rounded-full bg-slate-950/85 text-teal-300 border border-teal-400/50 backdrop-blur-sm">
+                        Act ${s.id} of 5
+                      </span>
+                      <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-purple-950/80 text-purple-300 border border-purple-400/40 backdrop-blur-sm">
+                        ${s.id === 1 ? '💥 Vault Blast' : s.id === 2 ? '👁️ Staredown' : s.id === 3 ? '🛡️ Armour Power-Up' : s.id === 4 ? '⚡ Sonic Deflection' : '👑 Level 99 Evolution'}
+                      </span>
+                    </div>
+                  </div>
+                  <div class="lg:col-span-5 p-6 flex flex-col justify-between space-y-4 bg-slate-950/70 border-t lg:border-t-0 lg:border-l border-slate-800">
+                    <div class="space-y-3">
+                      <h3 class="text-xl font-heading font-bold text-white">${s.scene_caption}</h3>
+                      <div class="bg-slate-900/90 border border-teal-500/30 rounded-xl p-4">
+                        <div class="text-[11px] font-bold uppercase tracking-wider text-teal-400 mb-1.5">Tudor's First-Person Lobster Narration:</div>
+                        <p class="text-sm text-slate-100 leading-relaxed italic">"${getStationText(s.id)}"</p>
+                      </div>
+                      <div class="bg-slate-900/50 rounded-xl p-3 border border-slate-800 text-xs text-slate-400">
+                        <span class="text-amber-300 font-bold">🕵️‍♂️ Glitch Fixed:</span> ${s.glitch_name}
+                      </div>
+                    </div>
+                    <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                      <span>Equipped: Option ${String.fromCharCode(65 + (state.selectedOptions[s.id] ?? 0))}</span>
+                      <button onclick="setStation(${idx})" class="text-teal-400 font-bold hover:underline">
+                        Change / Remix Text →
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              `).join("")}
             </div>
           </div>
         ` : `

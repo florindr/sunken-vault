@@ -65,6 +65,8 @@
     {
       "id": 1,
       "title": "Station 1: The Lobster's Secret Opening (Senses & Tense)",
+      "scene_image": "./public/assets/scene1_vault_explosion.jpg",
+      "scene_caption": "The Compass Vault Explodes as the Iron Switch is Triggered",
       "original": "Under the sea there was a sunken compass shaped vault. It had the smell of plain white salt. I have heard a big wave crush in the horizon. I saw a colossal green kelp growing from the rocky ocean floor. I have touched an iron switch and a part of the middle of the ocean ruin has exploded.",
       "glitch_name": "Underwater Physics & Time-Travel Glitch",
       "glitch_explanation": [
@@ -90,6 +92,8 @@
     {
       "id": 2,
       "title": "Station 2: The Big Reveal! (I Am The Lobster)",
+      "scene_image": "./public/assets/scene2_monster_staredown.jpg",
+      "scene_caption": "Undersea Staredown: Mythical Purple Lobster vs. Colossal Kelp Monster",
       "original": "In the murky water the big green kelp monster has appeared through that watery fog with its amber glowing eyes. It stares at the mythical gloomy purple lobster. With its shimmering green eyes like emeralds, the lobster stared back at the colossal kelp monster.",
       "glitch_name": "Camera Switch Glitch (Who is 'I'?)",
       "glitch_explanation": [
@@ -114,6 +118,8 @@
     {
       "id": 3,
       "title": "Station 3: Armour Up! (First-Person & Apostrophes)",
+      "scene_image": "./public/assets/scene3_lobster_powerup.jpg",
+      "scene_caption": "Armour Power-Up: Shell Hardens & Claws Grow Razor-Sharp",
       "original": "The lobster pinched the ground and a misty grey fog appeared on the ocean floor. The kelp monster said: \"Leave before you get hurt.\" Then the lobsters shell glowed and started to look like armour. The lobster's claws start growing and looked sharper.",
       "glitch_name": "Pronoun & Tense Sync",
       "glitch_explanation": [
@@ -138,6 +144,8 @@
     {
       "id": 4,
       "title": "Station 4: Sonic Lightning Deflection (Cutting 'And then')",
+      "scene_image": "./public/assets/scene4_lightning_clash.jpg",
+      "scene_caption": "Underwater Boss Fight: Sonic Lightning Deflected Off Armoured Shell",
       "original": "And then the green kelp monster held a ball of lightning and hit it straight towards the lobster. The lobster's armour started growing stronger and changed colour. The lightning burst through sonic speed and tsunami were crashing and after all the impact bounced off the lobster's shell and hit straight at the green kelp monster.",
       "glitch_name": "The 'And Then' Run-On Overload",
       "glitch_explanation": [
@@ -162,6 +170,8 @@
     {
       "id": 5,
       "title": "Station 5: The Turquoise Evolution (Fixing the Final Combo)",
+      "scene_image": "./public/assets/scene5_turquoise_victory.jpg",
+      "scene_caption": "Level 99 Turquoise Evolution: Vault Light Unleashed & Monster Defeated",
       "original": "The lobster sharpened his claws and lifted one up in the air lightning absorbed in its claws, and fitted the green kelp monster's amber eye, and got and defeated. And then the ocean ruins started to open an unleashed the lobster shell to get even more powerful. Then it turned into a turquoise glowing blue and his claws were sharp as needles.",
       "glitch_name": "Brain Faster Than The Pencil Glitch",
       "glitch_explanation": [
